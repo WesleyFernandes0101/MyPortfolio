@@ -1,21 +1,40 @@
-<?php 
+<?php
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
-    $nome = addslashes($_POST['nome']);
-    $email = addslashes($_POST['email']);
-    $celular = addslashes($_POST['celular']);
-    $mensagem = addslashes($_POST['mensagem']);
+    $nome = htmlspecialchars(trim($_POST['nome']));
+    $email = filter_var(trim($_POST['email']), FILTER_SANITIZE_EMAIL);
+    $celular = htmlspecialchars(trim($_POST['celular']));
+    $mensagem = htmlspecialchars(trim($_POST['mensagem']));
 
-    $para = "wesley.coldyto@gmail.com";
-    $assunto = "Contato";
 
-    $corpo = "Nome: ".$nome."\n"."E-mail ".$email."\n"."Celular: ".$celular."\n"."Mensagem: ".$mensagem; 
-
-    $cabeca = "From: wesley.coldyto@gmail.com"."\n"."Reply-to: ".$email."\n"."X=Mailer:PHP/".phpversion();
-
-    if(mail($para, $assunto, $corpo, $cabeca)){
-        echo("E-mail enviado com sucesso!");
-    } else {
-        echo("Houve um erro ao enviar o email!");
+    if (empty($nome) || empty($email) || empty($mensagem)) {
+        echo "Por favor, preencha todos os campos obrigatórios.";
+        exit;
     }
 
+
+    if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+        echo "Por favor, insira um endereço de e-mail válido.";
+        exit;
+    }
+
+
+    $to = "wesley.coldyto@gmail.com"; 
+    $subject = "Nova mensagem do formulário de contato";
+    $body = "Nome: $nome\n";
+    $body .= "E-mail: $email\n";
+    $body .= "Celular: $celular\n";
+    $body .= "Mensagem: $mensagem\n";
+    $headers = "From: $email\r\n";
+    $headers .= "Reply-To: $email\r\n";
+
+
+    if (mail($to, $subject, $body, $headers)) {
+        echo "Mensagem enviada com sucesso!";
+    } else {
+        echo "Erro ao enviar a mensagem. Por favor, tente novamente mais tarde.";
+    }
+} else {
+    echo "Método de requisição inválido.";
+}
 ?>
