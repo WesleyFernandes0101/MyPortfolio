@@ -1,13 +1,7 @@
 {
   "functions": {
-    "api/php/enviar.php": {
-      "runtime": "vercel-php@0.5.1"
+    "api/*.php": {
+      "runtime": "vercel-php@0.7.1"
     }
-  },
-  "routes": [
-    {
-      "src": "/api/php/enviar",
-      "dest": "/api/php/enviar.php"
-    }
-  ]
+  }
 }
