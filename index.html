@@ -11,9 +11,9 @@
     <!-- Bootstrap icons -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
     <!-- Bootstrap icons -->
-    <link rel="shortcut icon" type="imagex/png" href="img/WF.png">
-    <link rel="stylesheet" href="style.css">
-    <script src="menu.js" defer></script>
+    <link rel="shortcut icon" type="imagex/png" href="assets/img/WF.png">
+    <link rel="stylesheet" href="assets/style/style.css">
+    <script src="assets/javascript/menu.js" defer></script>
     <title>Wesley Fernandes</title>
 </head>
 <body>
@@ -22,7 +22,7 @@
 
             <div class="logo">
                 <a href="#inicio">
-                    <img src="img/LogoPort.png" alt="Logo">
+                    <img src="assets/img/LogoPort.png" alt="Logo">
                 </a>
             </div><!--logo-->
 
@@ -86,7 +86,7 @@
                     </div><!--txt-top-site-->
 
                     <div class="img-top-site">
-                        <img src="img/style1.png" alt="Minha foto">
+                        <img src="assets/img/style1.png" alt="Minha foto">
                     </div><!--img-top-site-->
 
                 </div><!--flex-->
@@ -125,7 +125,7 @@
                 <div class="flex">
 
                     <div class="img-sobre">
-                        <img src="img/style2.jpg" alt="Minha foto 2">
+                        <img src="assets/img/style2.jpg" alt="Minha foto 2">
                     </div><!--img-sobre-->
 
                     <div class="txt-sobre">
@@ -157,15 +157,15 @@
                 <h2 class="titulo">MEU <span>PORTFÓLIO.</span></h2>
                 <div class="flex">
 
-                    <div class="img-port" style="background-image: url(img/image.jpg);">
+                    <div class="img-port" style="background-image: url(assets/img/image.jpg);">
                         <div class="overlay">Em andamento</div>
                     </div>
 
-                    <div class="img-port" style="background-image: url(img/image.jpg);">
+                    <div class="img-port" style="background-image: url(assets/img/image.jpg);">
                         <div class="overlay">Em andamento</div>
                     </div>
 
-                    <div class="img-port" style="background-image: url(img/image.jpg);">
+                    <div class="img-port" style="background-image: url(assets/img/image.jpg);">
                         <div class="overlay">Em andamento</div>
                     </div>
 
@@ -177,12 +177,15 @@
             <div class="interface">
                 <h2 class="titulo">FALA <span>COMIGO.</span></h2>
 
-                <form action="./api/enviar.php" method="post">
-                    <input type="text" name="nome" id="nome" placeholder="Seu nome completo:" required>
-                    <input type="text" name="email" id="email" placeholder="Seu e-mail:" required>
-                    <input type="text" name="celular" id="celular" placeholder="Seu celular:">
-                    <textarea name="mensagem" id="mensagem" placeholder="Sua mensagem" required></textarea>
+                <form action="https://api.staticforms.xyz/submit" method="post">
+                    <input type="text" name="name" id="nome" placeholder="Seu nome completo:" autocomplete="off" required>
+                    <input type="email" name="email" id="email" placeholder="Seu e-mail:" autocomplete="off" required>
+                    <input type="text" name="phone" id="celular" placeholder="Seu celular:" autocomplete="off">
+                    <textarea name="message" id="mensagem" placeholder="Sua mensagem" autocomplete="off" required></textarea>
                     <div class="btn-enviar"><input type="submit" value="Enviar"></div>
+
+                    <input type="hidden" name="accessKey" value="4b32c404-1421-4a50-8194-387e32b373c4">
+                    <input type="hidden" name="redirectTo" value="http://127.0.0.1:5500/thanks.html">
                 </form>
             </div><!--interface-->
         </section><!--formulario-->
@@ -194,7 +197,7 @@
                 <div class="flex">
 
                     <div class="logo-footer">
-                        <img src="img/LogoPort.png" alt="Minhas logo footer">
+                        <img src="assets/img/LogoPort.png" alt="Minha logo footer">
                     </div><!--logo-footer-->
 
                     <div class="btn-social">
